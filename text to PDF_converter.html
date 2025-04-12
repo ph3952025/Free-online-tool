@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online tool to convert text to PDF documents instantly. No registration required, works on all devices.">
+    <meta name="keywords" content="text to pdf, online pdf converter, free pdf creator, text converter, document converter">
+    <meta name="author" content="TextToPDF Converter">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Free Text to PDF Converter | Online Tool">
+    <meta property="og:description" content="Convert any text to PDF instantly with our free online tool. Works on all devices without installation.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourwebsite.com/text-to-pdf">
+    
+    <title>Free Text to PDF Converter | Online Tool</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://yourwebsite.com/text-to-pdf">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    
+    <style>
+        :root {
+            --primary-color: #4a6bff;
+            --secondary-color: #f8f9fa;
+            --accent-color: #ff6b6b;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f7ff;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--primary-color), #6a5acd);
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .converter-container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .btn-primary:hover {
+            background-color: #3a5bef;
+            border-color: #3a5bef;
+        }
+        
+        .btn-secondary {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+        }
+        
+        .btn-secondary:hover {
+            background-color: #e05a5a;
+            border-color: #e05a5a;
+        }
+        
+        #textInput {
+            min-height: 300px;
+            resize: vertical;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+            height: 100%;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .ad-container {
+            background: #f8f9fa;
+            border: 1px dashed #ccc;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            text-align: center;
+            border-radius: 5px;
+        }
+        
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                padding: 1.5rem 0;
+            }
+            
+            #textInput {
+                min-height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h1 class="display-4 fw-bold">Text to PDF Converter</h1>
+                    <p class="lead">Convert your text documents to PDF instantly for free. No registration required.</p>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <img src="https://via.placeholder.com/150x150" alt="PDF Icon" class="img-fluid d-none d-md-inline" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Top Ad Banner -->
+        <div class="ad-container">
+            <!-- Replace with your Google AdSense code -->
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-app-pub-4044858385588111~7391827286"></script>
+            <!-- Responsive Ad Unit -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-app-pub-4044858385588111~7391827286"
+                 data-ad-slot="ca-app-pub-4044858385588111/1827202505"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <!-- Converter Tool -->
+        <div class="converter-container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h2 class="mb-4">Convert Text to PDF</h2>
+                    <div class="mb-3">
+                        <label for="fileName" class="form-label">PDF File Name</label>
+                        <input type="text" class="form-control" id="fileName" placeholder="Enter file name (default: document.pdf)" value="document.pdf">
+                    </div>
+                    <div class="mb-3">
+                        <label for="textInput" class="form-label">Enter Your Text</label>
+                        <textarea class="form-control" id="textInput" placeholder="Paste or type your text here..."></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="fontSize" class="form-label">Font Size</label>
+                        <select class="form-select" id="fontSize">
+                            <option value="10">10pt (Small)</option>
+                            <option value="12" selected>12pt (Normal)</option>
+                            <option value="14">14pt (Medium)</option>
+                            <option value="16">16pt (Large)</option>
+                            <option value="18">18pt (Extra Large)</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="pageSize" class="form-label">Page Size</label>
+                        <select class="form-select" id="pageSize">
+                            <option value="a4">A4 (210 × 297 mm)</option>
+                            <option value="letter">Letter (8.5 × 11 in)</option>
+                            <option value="legal">Legal (8.5 × 14 in)</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="pageOrientation" class="form-label">Page Orientation</label>
+                        <select class="form-select" id="pageOrientation">
+                            <option value="portrait" selected>Portrait</option>
+                            <option value="landscape">Landscape</option>
+                        </select>
+                    </div>
+                    <div class="d-grid gap-2 d-md-flex">
+                        <button id="generateBtn" class="btn btn-primary btn-lg me-md-2">
+                            <i class="fas fa-file-pdf me-2"></i>Generate PDF
+                        </button>
+                        <button id="clearBtn" class="btn btn-secondary btn-lg">
+                            <i class="fas fa-trash-alt me-2"></i>Clear Text
+                        </button>
+                    </div>
+                </div>
+                <div class="col-lg-4 mt-4 mt-lg-0">
+                    <!-- Sidebar Ad -->
+                    <div class="ad-container mb-4">
+                        <!-- Replace with your Google AdSense code -->
+                        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-app-pub-4044858385588111~7391827286"></script>
+                        <!-- Sidebar Ad Unit -->
+                        <ins class="adsbygoogle"
+                             style="display:block"
+                             data-ad-client="ca-app-pub-4044858385588111~7391827286"
+                             data-ad-slot="ca-app-pub-4044858385588111/9938099571"
+                             data-ad-format="auto"
+                             data-full-width-responsive="true"></ins>
+                        <script>
+                             (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header bg-primary text-white">
+                            <h3 class="h5 mb-0">How to Use</h3>
+                        </div>
+                        <div class="card-body">
+                            <ol class="list-group list-group-numbered">
+                                <li class="list-group-item border-0 ps-0">Enter or paste your text</li>
+                                <li class="list-group-item border-0 ps-0">Customize PDF settings</li>
+                                <li class="list-group-item border-0 ps-0">Click "Generate PDF"</li>
+                                <li class="list-group-item border-0 ps-0">Download your PDF file</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Middle Ad Banner -->
+        <div class="ad-container">
+            <!-- Replace with your Google AdSense code -->
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-app-pub-4044858385588111~7391827286"></script>
+            <!-- Middle Banner Ad -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-app-pub-4044858385588111~7391827286
+                 data-ad-slot="ca-app-pub-4044858385588111/6437838260"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <!-- Features Section -->
+        <section class="my-5">
+            <h2 class="text-center mb-4">Why Use Our Text to PDF Converter?</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>Fast Conversion</h3>
+                        <p>Convert text to PDF in seconds with our high-speed processing technology.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <h3>Secure & Private</h3>
+                        <p>Your documents are processed in your browser and never uploaded to our servers.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>Works Everywhere</h3>
+                        <p>Use our tool on any device - desktop, tablet, or mobile phone.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="my-5">
+            <h2 class="text-center mb-4">Frequently Asked Questions</h2>
+            <div class="accordion" id="faqAccordion">
+                <div class="accordion-item">
+                    <h3 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Is this tool really free to use?
+                        </button>
+                    </h3>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Yes, our Text to PDF converter is completely free to use with no hidden charges. You can convert as many documents as you need without any limitations.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h3 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Do you store my documents after conversion?
+                        </button>
+                    </h3>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            No, all conversions happen in your browser. We don't upload your text to our servers, so your documents remain completely private.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h3 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            What text formats can I convert to PDF?
+                        </button>
+                    </h3>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            You can convert plain text, formatted text (preserving basic formatting), and even code snippets. The converter maintains line breaks and paragraphs from your original text.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h3>Text to PDF Converter</h3>
+                    <p>A free online tool to convert your text documents to PDF format instantly.</p>
+                </div>
+                <div class="col-md-4">
+                    <h3>Quick Links</h3>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">Home</a></li>
+                        <li><a href="#" class="text-white">Privacy Policy</a></li>
+                        <li><a href="#" class="text-white">Terms of Service</a></li>
+                        <li><a href="#" class="text-white">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h3>Connect With Us</h3>
+                    <div class="social-links">
+                        <a href="#" class="text-white me-2"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-2"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-2"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4 bg-light">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2023 Text to PDF Converter. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0">Made with <i class="fas fa-heart text-danger"></i> for PDF lovers</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    
+    <!-- Custom Script -->
+    <script>
+        // Initialize jsPDF
+        const { jsPDF } = window.jspdf;
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const generateBtn = document.getElementById('generateBtn');
+            const clearBtn = document.getElementById('clearBtn');
+            const textInput = document.getElementById('textInput');
+            const fileNameInput = document.getElementById('fileName');
+            const fontSizeSelect = document.getElementById('fontSize');
+            const pageSizeSelect = document.getElementById('pageSize');
+            const pageOrientationSelect = document.getElementById('pageOrientation');
+            
+            // Generate PDF function
+            generateBtn.addEventListener('click', function() {
+                if (!textInput.value.trim()) {
+                    alert('Please enter some text to convert to PDF.');
+                    return;
+                }
+                
+                const fileName = fileNameInput.value.trim() || 'document.pdf';
+                const fontSize = parseInt(fontSizeSelect.value);
+                const pageSize = pageSizeSelect.value;
+                const pageOrientation = pageOrientationSelect.value;
+                
+                // Create new PDF document
+                const doc = new jsPDF({
+                    orientation: pageOrientation,
+                    unit: 'pt',
+                    format: pageSize
+                });
+                
+                // Set font and size
+                doc.setFont('helvetica');
+                doc.setFontSize(fontSize);
+                
+                // Split text into lines that fit the page width
+                const pageWidth = doc.internal.pageSize.getWidth();
+                const margins = 40; // 40pt margins on each side
+                const maxWidth = pageWidth - (margins * 2);
+                
+                const lines = doc.splitTextToSize(textInput.value, maxWidth);
+                
+                // Add text to PDF with proper line breaks
+                let y = margins + fontSize;
+                const lineHeight = fontSize * 1.2;
+                
+                for (let i = 0; i < lines.length; i++) {
+                    // Check if we need to add a new page
+                    if (y > doc.internal.pageSize.getHeight() - margins) {
+                        doc.addPage();
+                        y = margins + fontSize;
+                    }
+                    
+                    doc.text(lines[i]
