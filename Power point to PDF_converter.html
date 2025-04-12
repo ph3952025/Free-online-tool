@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online PowerPoint to PDF converter. Convert PPT, PPTX to PDF quickly without installation. Fully secure and works on all devices.">
+    <meta name="keywords" content="PowerPoint to PDF, PPT to PDF, PPTX to PDF, online converter, free converter">
+    <meta name="author" content="PowerPointPDFConverter">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Free PowerPoint to PDF Converter">
+    <meta property="og:description" content="Convert your PowerPoint presentations to PDF files online for free.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.yourwebsite.com">
+    <meta property="og:image" content="https://www.yourwebsite.com/images/ppt-to-pdf.jpg">
+    <link rel="canonical" href="https://www.yourwebsite.com">
+    
+    <title>Free PowerPoint to PDF Converter | Convert PPT/PPTX Online</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #4285f4;
+            --secondary-color: #34a853;
+            --accent-color: #ea4335;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+        }
+        
+        .converter-container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .drop-zone {
+            border: 3px dashed #ccc;
+            border-radius: 8px;
+            padding: 3rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-bottom: 1.5rem;
+        }
+        
+        .drop-zone:hover {
+            border-color: var(--primary-color);
+            background-color: rgba(66, 133, 244, 0.05);
+        }
+        
+        .drop-zone.active {
+            border-color: var(--secondary-color);
+            background-color: rgba(52, 168, 83, 0.05);
+        }
+        
+        .btn-convert {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 500;
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 50px;
+            transition: all 0.3s;
+        }
+        
+        .btn-convert:hover {
+            background-color: #3367d6;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .btn-convert:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+        
+        .features {
+            margin: 3rem 0;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        .ad-container {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            text-align: center;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed #ccc;
+        }
+        
+        .ad-label {
+            font-size: 0.8rem;
+            color: #666;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                padding: 1.5rem 0;
+            }
+            
+            .converter-container {
+                padding: 1.5rem;
+            }
+            
+            .drop-zone {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h1><i class="fas fa-file-pdf me-2"></i> PowerPoint to PDF Converter</h1>
+                    <p class="lead">Convert your PowerPoint presentations to PDF files quickly and easily. No installation needed!</p>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <div class="ad-container">
+                        <!-- AdSense Ad Unit 1 -->
+                        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-app-pub-4044858385588111~7391827286"></script>
+                        <!-- PPT Converter Top Banner -->
+                        <ins class="adsbygoogle"
+                             style="display:block"
+                             data-ad-client="ca-app-pub-4044858385588111~7391827286"
+                             data-ad-slot="ca-app-pub-4044858385588111/7618347552"
+                             data-ad-format="auto"
+                             data-full-width-responsive="true"></ins>
+                        <script>
+                             (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Main Converter Section -->
+    <main class="container">
+        <div class="converter-container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="text-center mb-4">Convert PowerPoint to PDF</h2>
+                    <p class="text-center mb-4">Drag & drop your PowerPoint file below or click to browse your computer</p>
+                    
+                    <div id="dropZone" class="drop-zone">
+                        <i class="fas fa-cloud-upload-alt fa-3x mb-3" style="color: var(--primary-color);"></i>
+                        <h4>Upload PowerPoint File</h4>
+                        <p class="text-muted">Supports PPT, PPTX formats</p>
+                        <input type="file" id="fileInput" accept=".ppt,.pptx" style="display: none;">
+                        <button class="btn btn-outline-primary mt-2">Select File</button>
+                    </div>
+                    
+                    <div class="text-center">
+                        <button id="convertBtn" class="btn-convert" disabled>
+                            <i class="fas fa-sync-alt me-2"></i> Convert to PDF
+                        </button>
+                    </div>
+                    
+                    <div id="progressContainer" class="mt-4" style="display: none;">
+                        <div class="progress">
+                            <div id="progressBar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%"></div>
+                        </div>
+                        <p id="statusText" class="text-center mt-2">Processing your file...</p>
+                    </div>
+                    
+                    <div id="resultContainer" class="text-center mt-4" style="display: none;">
+                        <i class="fas fa-check-circle fa-3x mb-3" style="color: var(--secondary-color);"></i>
+                        <h4>Conversion Complete!</h4>
+                        <a id="downloadLink" href="#" class="btn btn-success mt-3">
+                            <i class="fas fa-download me-2"></i> Download PDF
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Middle Ad Banner -->
+        <div class="ad-container">
+            <div class="ad-label">Advertisement</div>
+            <!-- AdSense Ad Unit 2 -->
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-app-pub-4044858385588111~7391827286"></script>
+            <!-- PPT Converter Middle Rectangle -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-app-pub-4044858385588111~7391827286"
+                 data-ad-slot="ca-app-pub-4044858385588111/9554956190"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        
+        <!-- Features Section -->
+        <div class="features">
+            <h2 class="text-center mb-5">Why Use Our PowerPoint to PDF Converter?</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <h3>Secure Conversion</h3>
+                        <p>Your files are processed securely in your browser. We don't store your PowerPoint or PDF files on our servers.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>Fast Processing</h3>
+                        <p>Convert PowerPoint to PDF in seconds with our optimized conversion algorithm.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>Works Everywhere</h3>
+                        <p>Use our converter on any device - desktop, tablet, or mobile phone.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- How It Works Section -->
+        <div class="converter-container mt-5">
+            <h2 class="text-center mb-4">How to Convert PowerPoint to PDF</h2>
+            <div class="row">
+                <div class="col-md-4 text-center mb-4">
+                    <div class="step-number">1</div>
+                    <h4>Upload PowerPoint File</h4>
+                    <p>Drag & drop your PPT or PPTX file or click to browse your computer.</p>
+                </div>
+                <div class="col-md-4 text-center mb-4">
+                    <div class="step-number">2</div>
+                    <h4>Convert to PDF</h4>
+                    <p>Click the convert button and wait a few seconds for processing.</p>
+                </div>
+                <div class="col-md-4 text-center mb-4">
+                    <div class="step-number">3</div>
+                    <h4>Download PDF</h4>
+                    <p>Your PDF file is ready! Click download to save it to your device.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bottom Ad Banner -->
+        <div class="ad-container">
+            <div class="ad-label">Advertisement</div>
+            <!-- AdSense Ad Unit 3 -->
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-app-pub-4044858385588111~7391827286"></script>
+            <!-- PPT Converter Bottom Banner -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-app-pub-4044858385588111~7391827286"
+                 data-ad-slot="ca-app-pub-4044858385588111/6928792856"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </main>
+    
+    <!-- FAQ Section -->
+    <section class="container mt-5">
+        <div class="converter-container">
+            <h2 class="text-center mb-4">Frequently Asked Questions</h2>
+            <div class="accordion" id="faqAccordion">
+                <div class="accordion-item">
+                    <h3 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                            Is this PowerPoint to PDF converter free to use?
+                        </button>
+                    </h3>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Yes, our PowerPoint to PDF converter is completely free to use. There are no hidden charges or limitations on the number of files you can convert.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h3 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                            What PowerPoint formats are supported?
+                        </button>
+                    </h3>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Our converter supports both .ppt (PowerPoint 97-2003) and .pptx (PowerPoint 2007 and later) file formats.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h3 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                            Is there a file size limit?
+                        </button>
+                    </h3>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            The maximum file size is 50MB. For larger files, we recommend compressing your PowerPoint before conversion.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h3 class="accordion-header" id="headingFour">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour">
+                            How secure is my data?
+                        </button>
+                    </h3>
+                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Your files are processed entirely in your browser. We never upload your PowerPoint or PDF files to our servers, ensuring complete privacy and security.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>PowerPoint to PDF Converter</h3>
+                    <p>The fastest and most secure way to convert your PowerPoint presentations to PDF files online.</p>
+                </div>
+                <div class="col-md-3">
+                    <h4>Quick Links</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">Home</a></li>
+                        <li><a href="#" class="text-white">Privacy Policy</a></li>
+                        <li><a href="#" class="text-white">Terms of Service</a></li>
+                        <li><a href="#" class="text-white">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h4>Tools</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">PDF to Word</a></li>
+                        <li><a href="#" class="text-white">JPG to PDF</a></li>
+                        <li><a href="#" class="text-white">Excel to PDF</a></li>
+                        <li><a href="#" class="text-white">More Tools</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4 bg-light">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; 2023 PowerPoint to PDF Converter. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- PDF Conversion Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.16.0/pdf-lib.min.js"></script>
+    
+    <!-- Main Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const dropZone = document.getElementById('dropZone');
+            const fileInput = document.getElementById('fileInput');
+            const convertBtn = document.getElementById('convertBtn');
+            const progressContainer = document.getElementById('progressContainer');
+            const progressBar = document.getElementById('progressBar');
+            const statusText = document.getElementById('statusText');
+            const resultContainer = document.getElementById('resultContainer');
+            const downloadLink = document.getElementById('downloadLink');
+            
+            let selectedFile = null;
+            
+            // Handle drag and drop events
+            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+                dropZone.addEventListener(eventName, preventDefaults, false);
+            });
+            
+            function preventDefaults(e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+            
+            ['dragenter', 'dragover'].forEach(eventName => {
+                dropZone.addEventListen
